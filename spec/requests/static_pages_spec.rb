@@ -25,4 +25,19 @@ describe "Static pages" do
       expect(page).to have_content('Über uns')
     end
   end
+
+  it "should have the right title" do
+    visit '/static_pages/home'
+    expect(page).to have_title("Flugplanung | Home")
+  end
+
+  it "should have the right title" do
+    visit '/static_pages/about'
+    expect(page).to have_title("Flugplanung | Über uns")
+  end
+
+  it "should have the right title" do
+    visit '/static_pages/help'
+    expect(page).to have_title("Flugplanung | Hilfe")
+  end
 end
