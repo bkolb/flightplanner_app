@@ -1,5 +1,10 @@
-<% provide(:title, 'Home') %>
-<h1>Flugplanung</h1>
-<p>
-  Das ist die Flugplanungsapp.....
-</p>
+<div class="center hero-unit">
+  <h1>Willkommen bei der Flugplanung</h1>
+
+  <h2>
+    This is the home page for the...
+  </h2>
+
+  <%= link_to "Gleich anmelden!", signup_path, class: "btn btn-large btn-primary" %>
+</div>
+<%= link_to image_tag("flugplanung.JPG", alt: "Flugplanung", class:"center"), 'http://flugplanung.com/' %>
