@@ -7,8 +7,8 @@ describe "User pages" do
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1', text: 'Anmelden') }
-    it { should have_title(full_title('Anmelden')) }
+    it { should have_selector('h1', text: 'Sign In') }
+    it { should have_title(full_title('Sign In')) }
   end
 
   describe "profile page" do
@@ -24,7 +24,7 @@ describe "User pages" do
 
     before { visit signup_path }
 
-    let(:submit) { "Meinen Account anlegen" }
+    let(:submit) { "Create my account" }
 
     describe "with invalid information" do
       it "should not create a user" do
@@ -37,7 +37,7 @@ describe "User pages" do
         fill_in "Name",         with: "Example User"
         fill_in "Email",        with: "user@example.com"
         fill_in "Password",     with: "foobar1234"
-        fill_in "Wiederholung", with: "foobar1234"
+        fill_in "Confirmation", with: "foobar1234"
       end
 
       it "should create a user" do
