@@ -7,8 +7,8 @@ describe "User pages" do
   describe "signup page" do
     before { visit signup_path }
 
-    it { should have_selector('h1', text: 'Sign In') }
-    it { should have_title(full_title('Sign In')) }
+    it { should have_selector('h1', text: 'Sign Up') }
+    it { should have_title(full_title('Sign Up')) }
   end
 
   describe "profile page" do
@@ -43,6 +43,21 @@ describe "User pages" do
       it "should create a user" do
         expect { click_button submit }.to change(User, :count).by(1)
       end
+
+      describe "after saving the user" do
+        before { click_button submit }
+        let(:user) { User.find_by(email: 'user@example.com') }
+
+        it { should have_link('Sign out') }
+        it { should have_title(user.name) }
+        it { should have_selector('div.alert.alert-success', text: 'Welcome') }
+
+        describe "followed by signout" do
+          before { click_link "Sign out" }
+          it { should have_link('Sign in') }
+        end
+      end
+
     end
   end
 end
